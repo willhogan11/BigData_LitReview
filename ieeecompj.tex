@@ -43,10 +43,19 @@
   % IEEE Computer Society needs nocompress option
   % requires cite.sty v4.0 or later (November 2003)
   \usepackage[nocompress]{cite}
+    \usepackage{romannum}
+    \usepackage{tcolorbox}
+    \usepackage{amsmath}
+    \usepackage{algorithm}
+    \usepackage[noend]{algpseudocode}
 \else
   % normal IEEE
   \usepackage{cite}
   \usepackage{romannum}
+  \usepackage{tcolorbox}
+  \usepackage{amsmath}
+  \usepackage{algorithm}
+  \usepackage[noend]{algpseudocode}
 \fi
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
@@ -313,10 +322,33 @@ With these statistics in mind, we can build a picture as to how big big data can
 \subsection{Big Data Analytics}
 Big Data analytics is a combination of Big Data and Analytics. But firstly just for clarification purposes, let us define what exactly Data Analytics is. Data analytics is the science of scrutinising raw data with the hope of discovering trends or habits in specific business areas. It's important to note that Fayyad and his colleagues mentioned back in 1996, that due to the emerging field of Knowledge Discovery in Databases(KDD), that there was an urgent need for new computational tools and theories to aid humans in discovering new and useful information[8]. Furthermore if we fast forward to 2009, a survey from the TDWI(transforming data into intelligence), revealed that 35\% of Organisations have reported practicing some form of advanced analytics, whereas 85\% explained that they would be practicing it within the next 3 years[9]. Based on this, it seems that Fayyad and his colleagues were spot on the mark and while it's important to acknowledge there foresight, it's also equally important to ask the question why this happened? Change is something that happens in many different environments, business being just one. But analytics itself hasn't just helped to assess situations, it has helped us discover what has changed, it's then with these discoveries that we can react accordingly and make the right decisions[10]. To add to this, it's worth noting that companies and organisations opted to use Data Analytics as a chance to beat the worldwide recession and help build a path to recovery[10].
 
+One of the methods that organisations can use in order to benefit from analysing their data, is Data Mining. To quote Oracle;
 
-\subsubsection{Data Mining}
+\textbf{\textit{"Data mining is the practice of automatically searching large stores of data to discover patterns and trends that go beyond simple analysis."}}[11]. 
+
+Let's explore this a bit further. Fig. 1 outlines what most Data mining algorithms contain initialisation, data input, data scan, rules construction and also rules update operators[12]. \\
+
+\textbf{Figure 1:}\\\\
+\textit
+{
+	Input data D\\
+	Initialize candidate solutions r\\
+	while the termination criterion is not met\\
+		d = Scan(D)\\
+		v = Construct(d, r, o)\\
+		r = Update(v)\\
+	End\\
+	Output rules r
+}
+
+
+
+\begin
+
+
 
 \subsubsection{Data Warehousing}
+Hadoop, Casandra, Map Reduce.....
 
 \subsection{The Importance of Big Data}
 
@@ -363,6 +395,12 @@ TDWI Best Practices Report Next Generation Data Warehouse Platforms (Q4 2009), a
 Big Data Analytics by Philip Russom 2011
 http://www.sas.com/content/dam/SAS/en\_us/doc/research2/big-data-analytics-105425.pdf
 
+\bibitem{IEEEhowto}
+https://docs.oracle.com/cd/B28359\_01/datamine.111/b28129/process.htm
+
+\bibitem{IEEEhowto}
+Tsai C-W, Lai C-F, Chiang M-C, Yang L. Data mining for internet of things: a survey. IEEE Commun Surveys Tutor.
+2014;16
 
 \end{thebibliography}
 

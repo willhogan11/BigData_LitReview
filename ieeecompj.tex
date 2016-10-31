@@ -46,16 +46,13 @@
     \usepackage{romannum}
     \usepackage{tcolorbox}
     \usepackage{amsmath}
-    \usepackage{algorithm}
+    %\usepackage{algorithm}
     \usepackage[noend]{algpseudocode}
+    \usepackage[]{algorithm2e}
+    
 \else
   % normal IEEE
   \usepackage{cite}
-  \usepackage{romannum}
-  \usepackage{tcolorbox}
-  \usepackage{amsmath}
-  \usepackage{algorithm}
-  \usepackage[noend]{algpseudocode}
 \fi
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
@@ -80,7 +77,6 @@
 % package with the nocompress option which is supported by cite.sty v4.0
 % and later. Note also the use of a CLASSOPTION conditional provided by
 % IEEEtran.cls V1.7 and later.
-
 
 
 
@@ -326,24 +322,42 @@ One of the methods that organisations can use in order to benefit from analysing
 
 \textbf{\textit{"Data mining is the practice of automatically searching large stores of data to discover patterns and trends that go beyond simple analysis."}}[11]. 
 
-Let's explore this a bit further. Fig. 1 outlines what most Data mining algorithms contain initialisation, data input, data scan, rules construction and also rules update operators[12]. \\
-
-\textbf{Figure 1:}\\\\
-\textit
-{
-	Input data D\\
-	Initialize candidate solutions r\\
-	while the termination criterion is not met\\
-		d = Scan(D)\\
-		v = Construct(d, r, o)\\
-		r = Update(v)\\
-	End\\
-	Output rules r
-}
+Let's explore this a bit further. Fig. 1 outlines what most Data mining algorithms contain, initialisation, data input, data scan, rules construction and also rules update operators[12]. \\
 
 
+\textbf{Figure 1: Data Mining Algorithm}
+\begin{algorithm}
+	\begin{tcolorbox}
+	{Input data \textit{D}}\\
+	{Initialize candidate solutions \textit{r}}\\
+	\While{the termination criterion is not met}
+	{
+		\textit{d = Scan(D)\;
+		v = Construct(d, r, o)\;
+		r = Update(v)\;}
+	}
+	Output rules \textit{r};
+	\end{tcolorbox}
+\end{algorithm}
 
-\begin
+Lets break this down piece by piece in order to understand it better. \textit{D} is the actual raw data, \textit{d} is the data entered in by the scan operator, \textit{r} are the rules, \textit{o} are the predefined measurement and \textit{v} the candidate rules. The scan, construct and update operators will continue to loop until the search criteria have been met.
+There are different methods used in Data Mining, in Fig 2. we see another method used called Clustering. With this method data can be seperated into different labelled groups using \textit{k-means}.\\
+
+
+\textbf{Figure 2: \textit{k-means} Algorithm}
+\begin{algorithm}
+	\begin{tcolorbox}
+		{Input data \textit{D}}\\
+		{Randomly create a set of centroids \textit{c}}\\
+		\While{the termination criterion is not met}
+		{
+			\textit{v = Assign(D, c)\;
+				    c = Update(v)\;}
+		}
+		Output centroids \textit{c};
+	\end{tcolorbox}
+\end{algorithm}
+
 
 
 

@@ -46,10 +46,9 @@
     \usepackage{romannum}
     \usepackage{tcolorbox}
     \usepackage{amsmath}
-    %\usepackage{algorithm}
     \usepackage[noend]{algpseudocode}
     \usepackage[]{algorithm2e}
-    
+    \usepackage{tcolorbox}
 \else
   % normal IEEE
   \usepackage{cite}
@@ -318,46 +317,62 @@ With these statistics in mind, we can build a picture as to how big big data can
 \subsection{Big Data Analytics}
 Big Data analytics is a combination of Big Data and Analytics. But firstly just for clarification purposes, let us define what exactly Data Analytics is. Data analytics is the science of scrutinising raw data with the hope of discovering trends or habits in specific business areas. It's important to note that Fayyad and his colleagues mentioned back in 1996, that due to the emerging field of Knowledge Discovery in Databases(KDD), that there was an urgent need for new computational tools and theories to aid humans in discovering new and useful information[8]. Furthermore if we fast forward to 2009, a survey from the TDWI(transforming data into intelligence), revealed that 35\% of Organisations have reported practicing some form of advanced analytics, whereas 85\% explained that they would be practicing it within the next 3 years[9]. Based on this, it seems that Fayyad and his colleagues were spot on the mark and while it's important to acknowledge there foresight, it's also equally important to ask the question why this happened? Change is something that happens in many different environments, business being just one. But analytics itself hasn't just helped to assess situations, it has helped us discover what has changed, it's then with these discoveries that we can react accordingly and make the right decisions[10]. To add to this, it's worth noting that companies and organisations opted to use Data Analytics as a chance to beat the worldwide recession and help build a path to recovery[10].
 
+\subsubsection{Data Mining}
 One of the methods that organisations can use in order to benefit from analysing their data, is Data Mining. To quote Oracle;
 
 \textbf{\textit{"Data mining is the practice of automatically searching large stores of data to discover patterns and trends that go beyond simple analysis."}}[11]. 
 
-Let's explore this a bit further. Fig. 1 outlines what most Data mining algorithms contain, initialisation, data input, data scan, rules construction and also rules update operators[12]. \\
+Let's explore this a bit further. Fig. 1 outlines what most Data mining algorithms contain, initialisation, data input, data scan, rules construction and also rules update operators[12].\\
 
+\newtcolorbox{algoBox}[1]
+{colback=white!5!white,colframe=white!25!black,fonttitle=\bfseries,title=#1}
 
-\textbf{Figure 1: Data Mining Algorithm}
-\begin{algorithm}
-	\begin{tcolorbox}
+\begin{algoBox}{\textbf{Figure 1: Data Mining Algorithm}}
 	{Input data \textit{D}}\\
 	{Initialize candidate solutions \textit{r}}\\
 	\While{the termination criterion is not met}
 	{
-		\textit{d = Scan(D)\;
-		v = Construct(d, r, o)\;
-		r = Update(v)\;}
+		\textit{d = Scan(D);\\
+			v = Construct(d, r, o);\\
+			r = Update(v);}
 	}
 	Output rules \textit{r};
-	\end{tcolorbox}
-\end{algorithm}
+\end{algoBox}
 
 Lets break this down piece by piece in order to understand it better. \textit{D} is the actual raw data, \textit{d} is the data entered in by the scan operator, \textit{r} are the rules, \textit{o} are the predefined measurement and \textit{v} the candidate rules. The scan, construct and update operators will continue to loop until the search criteria have been met.
-There are different methods used in Data Mining, in Fig 2. we see another method used called Clustering. With this method data can be seperated into different labelled groups using \textit{k-means}.\\
+There are different methods used in Data Mining, in Fig 2. we see another method used called Clustering. With this method data can be seperated into different labelled groups using \textit{k-means}[13].\\
 
 
-\textbf{Figure 2: \textit{k-means} Algorithm}
-\begin{algorithm}
-	\begin{tcolorbox}
-		{Input data \textit{D}}\\
-		{Randomly create a set of centroids \textit{c}}\\
-		\While{the termination criterion is not met}
-		{
-			\textit{v = Assign(D, c)\;
-				    c = Update(v)\;}
-		}
-		Output centroids \textit{c};
-	\end{tcolorbox}
-\end{algorithm}
+\begin{algoBox}{\textbf{Figure 2: \textit{k-means} Algorithm}}
+	{Input data \textit{D}}\\
+	{Randomly create a set of centroids \textit{c}}\\
+	\While{the termination criterion is not met}
+	{
+		\textit{v = Assign(D, c);\\
+			c = Update(v);}
+	}
+	Output centroids \textit{c};
+\end{algoBox}
 
+To detail what's happening in the above, firstly we create a random set of Centroids, these centroids represent the patterns created by user input are divided into specific groups[14]. After this, the assignment operator checks the distance between the centroids and the patterns in order to ascertain which group each pattern belongs too. The formula used to calculate this(1) can be written as so;
+
+\begin{equation}
+	SSE = \sum_{i=1}^{k} \sum_{j=1}^{n_i} D( x_{ij} - c_i)
+\end{equation}
+
+Where SSE is the squared sum of errors, which is used to measure cohesion of the data mining results. In the above formula \textit{k} is entered by the user; ni the number of
+data in the ith cluster; \textit{xij} the \textit{j}th datum in the \textit{i}th cluster; \textit{ci} is the mean of the \textit{i}th cluster; [14]. 
+
+With Data Mining, the most common method to measure distance is the Euclidean distance, defined as
+
+\begin{equation}
+\mathbf{D(p_{i}, p_{j})} = 
+\left(
+\sum_{l=1}^{d} |p_{il}, p_{jl}|^2
+\right)^{1/2}
+\end{equation}
+
+Where \textit{pi} and \textit{pj} are the positions of two different pieces of data.\\\\
 
 
 
@@ -415,6 +430,13 @@ https://docs.oracle.com/cd/B28359\_01/datamine.111/b28129/process.htm
 \bibitem{IEEEhowto}
 Tsai C-W, Lai C-F, Chiang M-C, Yang L. Data mining for internet of things: a survey. IEEE Commun Surveys Tutor.
 2014;16
+
+\bibitem{IEEEhowto}
+SOME METHODS FOR CLASSIFICATION AND ANALYSIS OF MULTIVARIATE OBSERVATIONS by J Macqueen, University of California
+https://pdfs.semanticscholar.org/a718/b85520bea702533ca9a5954c33576fd162b0.pdf
+
+\bibitem{IEEEhowto}
+Krishna K, Murty MN. Genetic k-means algorithm. IEEE Trans Syst Man Cyber Part B Cyber. 1999;
 
 \end{thebibliography}
 
